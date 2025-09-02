@@ -19,27 +19,24 @@ const navigationMaps = {
       'commission-review': { page: 36, section: '4.14' },
       'damage-compensation': { page: 38, section: '4.15' },
       'cost-recovery': { page: 40, section: '4.16' },
-      // при необходимости: поправь нумерацию ниже, если в PDF нет «дыры»
-      'law-enforcement': { page: 49, section: '4.17' },   // было 4.18
-      'operational-control': { page: 51, section: '4.18' },// было 4.19
-
-      // новые разделы — их нет в исходном PDF, поэтому page=null
+      'law-enforcement': { page: 49, section: '4.17' },
+      'operational-control': { page: 51, section: '4.18' },
       'acts-lifecycle': { page: 18, section: '—' },
       'acts-flow': { page: 23, section: '—' },
       'common-schemes': { page: 22, section: '—' },
     }
   },
   'i004-2025': {
-  docUrl: 'regulations/i004-2025/document.pdf',
-  sections: {
-    'purpose': { page: 4, section: '1' },
-    'responsible-persons': { page: 7, section: '4.2' },
-    'seal-accounting': { page: 8, section: '4.4' },
-    'sealing-rules': { page: 9, section: '4.4.2' },
-    'seal-registration': { page: 11, section: '4.4.6' },
-    'reporting-disposal': { page: 12, section: '4.4.8' },
-    'acts-accounting': { page: 13, section: '4.5' },
-    'authorized-positions': { page: 15, section: 'Приложение 1' }
+    docUrl: 'regulations/i004-2025/document.pdf',
+    sections: {
+      'purpose': { page: 4, section: '1' },
+      'responsible-persons': { page: 7, section: '4.2' },
+      'seal-accounting': { page: 8, section: '4.4' },
+      'sealing-rules': { page: 9, section: '4.4.2' },
+      'seal-registration': { page: 11, section: '4.4.6' },
+      'reporting-disposal': { page: 12, section: '4.4.8' },
+      'acts-accounting': { page: 13, section: '4.5' },
+      'authorized-positions': { page: 15, section: 'Приложение 1' }
+    }
   }
-}
-};
+}; 
