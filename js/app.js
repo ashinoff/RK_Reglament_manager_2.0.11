@@ -316,33 +316,40 @@
   };
   
   function openSourceDocument(sectionId) {
-    const selectedReglament = document.getElementById('reglamentSelect').value;
-    const navMap = navigationMaps[selectedReglament];
-    if (!navMap || !navMap.sections[sectionId]) {
-      alert('Раздел не найден в навигационной карте');
-      return;
-    }
-    const page = navMap.sections[sectionId].page;
-    const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/'));
-    const pdfUrl = `${baseUrl}${navMap.docUrl}#page=${page}`;
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    
-    if (isMobile) {
-      const modal = document.getElementById('sourceModal');
-      const sourceText = document.getElementById('sourceText');
-      sourceText.innerHTML = `
-        <div style="text-align: center; padding: 20px;">
-          <h3 style="color: var(--primary); margin-bottom: 1rem;">Раздел ${navMap.sections[sectionId].section || page}</h3>
-          <p style="margin-bottom: 1.5rem;">Откройте документ и перейдите на страницу <strong>${page}</strong></p>
-          <a href="${baseUrl}${navMap.docUrl}" class="action-btn btn-action-primary" style="display: inline-block; text-decoration: none; padding: 0.75rem 1.5rem;">Скачать PDF</a>
-          <button onclick="window.open('${baseUrl}${navMap.docUrl}', '_blank')" class="action-btn btn-action-primary" style="margin-left: 1rem; padding: 0.75rem 1.5rem;">Открыть PDF</button>
-        </div>
-      `;
-      modal.style.display = 'block';
-    } else {
-      window.open(pdfUrl, '_blank');
-    }
+  const selectedReglament = document.getElementById('reglamentSelect').value;
+  const navMap = navigationMaps[selectedReglament];
+  if (!navMap || !navMap.sections[sectionId]) {
+    alert('Раздел не найден в навигационной карте');
+    return;
   }
+  const page = navMap.sections[sectionId].page;
+  
+  // Удалите только эти две строки:
+  // const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/'));
+  // const pdfUrl = `${baseUrl}${navMap.docUrl}#page=${page}`;
+  
+  // И замените на эту одну строку:
+  const pdfUrl = `${navMap.docUrl}#page=${page}`;
+  
+  // Всё остальное оставьте как есть:
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  
+  if (isMobile) {
+    const modal = document.getElementById('sourceModal');
+    const sourceText = document.getElementById('sourceText');
+    sourceText.innerHTML = `
+      <div style="text-align: center; padding: 20px;">
+        <h3 style="color: var(--primary); margin-bottom: 1rem;">Раздел ${navMap.sections[sectionId].section || page}</h3>
+        <p style="margin-bottom: 1.5rem;">Откройте документ и перейдите на страницу <strong>${page}</strong></p>
+        <a href="${navMap.docUrl}" class="action-btn btn-action-primary" style="display: inline-block; text-decoration: none; padding: 0.75rem 1.5rem;">Скачать PDF</a>
+        <button onclick="window.open('${navMap.docUrl}', '_blank')" class="action-btn btn-action-primary" style="margin-left: 1rem; padding: 0.75rem 1.5rem;">Открыть PDF</button>
+      </div>
+    `;
+    modal.style.display = 'block';
+  } else {
+    window.open(pdfUrl, '_blank');
+  }
+}
   
   // ======= Бегущая строка =======
   function checkMarqueeNeeded() {
