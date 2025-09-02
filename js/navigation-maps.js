@@ -28,5 +28,18 @@ const navigationMaps = {
       'acts-flow': { page: 23, section: '—' },
       'common-schemes': { page: 22, section: '—' },
     }
+  },
+  'i004-2025': {
+  docUrl: 'regulations/i004-2025/document.pdf',
+  sections: {
+    'purpose': { page: 4, section: '1' },
+    'responsible-persons': { page: 7, section: '4.2' },
+    'seal-accounting': { page: 8, section: '4.4' },
+    'sealing-rules': { page: 9, section: '4.4.2' },
+    'seal-registration': { page: 11, section: '4.4.6' },
+    'reporting-disposal': { page: 12, section: '4.4.8' },
+    'acts-accounting': { page: 13, section: '4.5' },
+    'authorized-positions': { page: 15, section: 'Приложение 1' }
   }
+}
 };
