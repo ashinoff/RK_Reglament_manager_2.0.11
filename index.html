@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>РЕГЛАМЕНТ РОССЕТИ КУБАНЬ — интерактивная версия</title>
+  
+  <!-- Стили -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- Конфигурация -->
+  <script src="js/data/config.js"></script>
+  
+  <!-- Данные регламентов -->
+  <script src="js/data/r057-2022.js"></script>
+  <!-- Добавляйте новые регламенты здесь -->
+  <!-- <script src="js/data/r058-2023.js"></script> -->
+  
+  <!-- Навигационные карты -->
+  <script src="js/navigation-maps.js"></script>
+  
+  <!-- Основное приложение -->
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <div class="header">
+    <div class="header-content">
+      <div class="brand-section">
+        <h1 class="brand-title">МЕТОДИКА ОРГАНИЗАЦИИ РАБОТЫ БЛОКА РЕАЛИЗАЦИИ И РАЗВИТИЯ УСЛУГ</h1>
+        <div class="brand-subtitle">РОССЕТИ КУБАНЬ</div>
+        <div class="theme-dots">
+          <div class="theme-dot active" data-theme="default" title="Классическая тема"></div>
+          <div class="theme-dot" data-theme="energy" title="Энергия"></div>
+          <div class="theme-dot" data-theme="purple" title="Фиолетовые сумерки"></div>
+          <div class="theme-dot" data-theme="ocean" title="Океан"></div>
+        </div>
+      </div>
+      <div class="controls">
+        <div class="select-wrapper">
+          <select id="reglamentSelect">
+            <option value="r057-2022">Р 057-2022 - Регламент работы по выявлению, сокращению и исключению бездоговорного и безучетного потребления электроэнергии</option>
+            <option value="other" disabled>Другие регламенты (в разработке)</option>
+          </select>
+          <div class="select-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </div>
+        </div>
+        <div class="search-wrapper">
+          <div class="search-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.35-4.35"/>
+            </svg>
+          </div>
+          <input type="text" id="searchInput" placeholder="Поиск по регламенту..." />
+          <button id="clearSearch" aria-label="Очистить">×</button>
+          <div class="search-hotkey">Ctrl+K</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="contentContainer"></div>
+  </div>
+
+  <div class="floating-buttons">
+    <button class="floating-btn" id="collapseAllBtn" title="Свернуть все">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 14h16M4 10h16"/>
+      </svg>
+    </button>
+    <button class="floating-btn" id="expandAllBtn" title="Развернуть все" style="display:none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 8h16M4 12h16M4 16h16"/>
+      </svg>
+    </button>
+    <button class="floating-btn" id="scrollTopBtn" title="Наверх" style="display: none;">↑</button>
+  </div>
+
+  <div id="sourceModal" class="source-modal">
+    <div class="modal-content">
+      <button class="close-modal">×</button>
+      <h2>Исходный документ</h2>
+      <div id="sourceText"></div>
+    </div>
+  </div>
+
+  <div id="attachmentsModal" class="source-modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeAttachmentsModal()">×</button>
+      <h2>Приложения</h2>
+      <div id="attachmentsList"></div>
+    </div>
+  </div>
+</body>
+</html>
