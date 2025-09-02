@@ -153,14 +153,68 @@ const specialFields = {
   'reporting': 'Отчётность:',
   'structure': 'Структура:',
   'tasks': 'Задачи:',
-  'special': 'Особые случаи:'
+  'special': 'Особые случаи:',
+  'keyPoints': 'Ключевые моменты:',
+  'timing': 'Сроки:',
+  'forms': 'Формы заявлений:',
+  'storage': 'Хранение:',
+  'control': 'Контроль:'
 };
+
+// Обработка специальных полей
+for (let field in algo.content) {
+  if (skipFields.includes(field) || !algo.content[field]) continue;
+  
+  const fieldTitle = specialFields[field] || field.charAt(0).toUpperCase() + field.slice(1) + ':';
+  const fieldValue = algo.content[field];
+  
+  if (typeof fieldValue === 'string') {
+    // Простая строка
+    const block = document.createElement('div');
+    block.className = 'algorithm-block';
+    block.innerHTML = `<p><strong>${fieldTitle}</strong> ${highlightText(fieldValue, rawTerm)}</p>`;
+    content.appendChild(block);
     
-    contentFields.forEach(({ field, title }) => {
-      if (algo.content[field]) {
-        content.appendChild(createBlock(title, algo.content[field], rawTerm));
-      }
-    });
+  } else if (Array.isArray(fieldValue)) {
+    // Массив элементов
+    if (fieldValue.length > 0 && typeof fieldValue[0] === 'object') {
+      // Массив объектов (например, formulas, periodDetails)
+      fieldValue.forEach(item => {
+        const block = document.createElement('div');
+        block.className = 'algorithm-block';
+        
+        if (item.title) {
+          block.innerHTML = `<h4>${highlightText(item.title, rawTerm)}</h4>`;
+        }
+        
+        if (item.text) {
+          block.innerHTML += `<p>${highlightText(item.text, rawTerm)}</p>`;
+        }
+        
+        if (item.formula) {
+          block.innerHTML += `<p><code>${highlightText(item.formula, rawTerm)}</code></p>`;
+        }
+        
+        if (item.list) {
+          const ul = document.createElement('ul');
+          item.list.forEach(listItem => {
+            const li = document.createElement('li');
+            li.innerHTML = listItem.includes('=') || listItem.includes('×') 
+              ? `<code>${highlightText(listItem, rawTerm)}</code>`
+              : highlightText(listItem, rawTerm);
+            ul.appendChild(li);
+          });
+          block.appendChild(ul);
+        }
+        
+        content.appendChild(block);
+      });
+    } else {
+      // Простой массив строк
+      content.appendChild(createBlock(fieldTitle, fieldValue, rawTerm));
+    }
+  }
+}
     
     // Ответственный и срок
     const footer = document.createElement('div');
