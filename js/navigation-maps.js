@@ -1,6 +1,6 @@
 const navigationMaps = {
   'r057-2022': {
-    docUrl: '/regulations/r057-2022/source.pdf',
+    docUrl: 'regulations/r057-2022/document.pdf',
     sections: {
       'normative': { page: 3,  section: '1' },
       'general': { page: 3,  section: '2' },
