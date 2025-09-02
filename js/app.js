@@ -131,12 +131,30 @@
     }
     
     // Добавляем остальные поля контента по необходимости
-    const contentFields = [
-      { field: 'keyPoints', title: 'Ключевые моменты:' },
-      { field: 'timing', title: 'Сроки:' },
-      { field: 'forms', title: 'Формы заявлений:' },
-      { field: 'storage', title: 'Хранение:' }
-    ];
+    const skipFields = ['responsible', 'deadline', 'steps', 'actions'];
+const specialFields = {
+  'period': 'Период расчёта:',
+  'formulas': 'Формулы расчёта:',
+  'parameters': 'Параметры:',
+  'correction': 'Корректировка:',
+  'unauthorizedConnection': 'Самовольное подключение:',
+  'meterIntervention': 'Вмешательство в ПУ:',
+  'periodDetails': 'Детализация периодов:',
+  'pricing': 'Тарификация:',
+  'important': '⚠️ Важно:',
+  'nonAdmission': 'При недопуске:',
+  'riskCriteria': 'Критерии риска:',
+  'raids': 'Рейды:',
+  'sources': 'Источники информации:',
+  'overview': 'Общие положения:',
+  'nonPayment': 'При неоплате:',
+  'documents': 'Необходимые документы:',
+  'deadlines': 'Сроки:',
+  'reporting': 'Отчётность:',
+  'structure': 'Структура:',
+  'tasks': 'Задачи:',
+  'special': 'Особые случаи:'
+};
     
     contentFields.forEach(({ field, title }) => {
       if (algo.content[field]) {
