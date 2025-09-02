@@ -1,3 +1,8 @@
+// Убеждаемся что объект существует
+if (!window.REGULATIONS_DATA) {
+  window.REGULATIONS_DATA = {};
+}
+
 // Данные регламента Р 057-2022
 window.REGULATIONS_DATA['r057-2022'] = [
   {
