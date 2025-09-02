@@ -1,3 +1,4 @@
+window.REGULATIONS_DATA = window.REGULATIONS_DATA || {};
 // Пример добавления нового регламента в config.js:
 regulations: [
   { id: 'r057-2022', title: 'Р 057-2022...', year: 2022, enabled: true },
