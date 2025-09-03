@@ -760,3 +760,27 @@ code{
   border-radius: var(--radius);
   border-left: 4px solid var(--accent);
 }
+/* Стили для выпадающего списка */
+select option {
+  background: white;
+  color: #1a1a1a;
+  padding: 0.5rem;
+}
+
+select option:disabled {
+  color: #999;
+  background: #f5f5f5;
+}
+
+/* Для лучшей поддержки в разных браузерах */
+select:focus option {
+  background: white;
+  color: #1a1a1a;
+}
+
+/* Подсветка выбранного элемента */
+select option:hover,
+select option:checked {
+  background: var(--primary);
+  color: white;
+}
