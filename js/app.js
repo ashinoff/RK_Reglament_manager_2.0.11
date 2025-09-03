@@ -158,7 +158,7 @@ const specialFields = {
   'timing': 'Сроки:',
   'forms': 'Формы заявлений:',
   'storage': 'Хранение:',
-  'control': 'Контроль:'
+  'control': 'Контроль:',
   'scope': 'Область применения:',
   'documentation': 'Документация:',
   'mustSeal': 'Обязательная пломбировка:',
