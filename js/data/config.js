@@ -1,4 +1,4 @@
-window.REGULATIONS_DATA = window.REGULATIONS_DATA || {};
+window.REGULATIONS_DATA = {};
 
 const APP_CONFIG = {
   organizationName: 'РОССЕТИ КУБАНЬ',
@@ -12,7 +12,7 @@ const APP_CONFIG = {
   regulations: [
     {
       id: 'r057-2022',
-      title: 'Р 057-2022 - Регламент работы по выявлению, сокращению и исключению бездоговорного и безучетного потребления электроэнергии',
+      title: 'Р 057-2022 - Регламент работы по выявлению БД и БУ потребления',
       year: 2022,
       enabled: true
     },
