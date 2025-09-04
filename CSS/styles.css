@@ -784,3 +784,16 @@ select option:checked {
   background: var(--primary);
   color: white;
 }
+.floating-btn svg{
+  width:20px;
+  height:20px;
+}
+
+/* Специальный цвет для кнопки экспорта */
+#exportWordBtn {
+  background: var(--accent);
+}
+
+#exportWordBtn:hover {
+  background: var(--accent-dark);
+}
