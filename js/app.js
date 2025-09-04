@@ -167,7 +167,23 @@ const specialFields = {
   'escalation': 'Эскалация:',
   'quarterly': 'Ежеквартальная отчётность:',
   'annual': 'Ежегодная отчётность:',
-  'positions': 'Уполномоченные должности:'
+  'positions': 'Уполномоченные должности:',
+  'keyTerms': 'Ключевые термины:',
+  'legalBasis': 'Нормативная база:',
+  'zakazchikLists': 'Перечни Заказчика:',
+  'ispolnitelLists': 'Перечни Исполнителя:',
+  'grounds': 'Основания:',
+  'notificationContent': 'Содержание уведомления:',
+  'execution': 'Исполнение:',
+  'specialCases': 'Особые случаи:',
+  'actContent': 'Содержание акта:',
+  'monthlyProcess': 'Ежемесячный процесс:',
+  'disputes': 'Разногласия:',
+  'notifications': 'Уведомления:',
+  'registers': 'Реестры:',
+  'frequency': 'Периодичность:',
+  'actions': 'Действия:',
+  'violations': 'Нарушения:'
 };
 
 // Обработка специальных полей
