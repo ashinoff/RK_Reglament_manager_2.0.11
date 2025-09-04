@@ -38,5 +38,18 @@ const navigationMaps = {
       'acts-accounting': { page: 14, section: '4.5' },
       'authorized-positions': { page: 15, section: 'Приложение 1' }
     }
+  },
+  'orp-reglament-2019': {
+    docUrl: 'regulations/orp-reglament-2019/document.pdf',
+    sections: {
+      'general-provisions': { page: 1, section: '1' },
+      'responsible-persons-lists': { page: 3, section: '1.8-1.11' },
+      'restriction-order-legal': { page: 4, section: '2' },
+      'restriction-order-citizens': { page: 16, section: '3' },
+      'control-compliance': { page: 10, section: '2.10-2.14' },
+      'power-resumption': { page: 18, section: '4-5' },
+      'services-accounting': { page: 20, section: '6' },
+      'documentation-forms': { page: 22, section: '8' }
+    }
   }
 }; 
