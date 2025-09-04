@@ -201,7 +201,7 @@ select{
   pointer-events:none;
   color:var(--text);
   font-size:0.9375rem;
-  animation:marquee-text 15s linear infinite;
+  animation:marquee-text 30s linear infinite;
   padding-right:3rem;
 }
 
