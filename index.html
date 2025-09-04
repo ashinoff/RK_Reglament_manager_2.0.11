@@ -17,7 +17,7 @@
   <script src="js/data/orp-reglament-2019.js"></script>
   <script src="js/data/rp-006-2025.js"></script>
   <!-- Добавляйте новые регламенты здесь -->
-  <!-- <script src="js/data/r058-2023.js"></script> -->
+  <!-- <script src="js/data/[новый-регламент].js"></script> -->
   
   <!-- Навигационные карты -->
   <script src="js/navigation-maps.js"></script>
@@ -41,8 +41,7 @@
       <div class="controls">
         <div class="select-wrapper">
           <select id="reglamentSelect">
-            <option value="r057-2022">Р 057-2022 - Регламент работы по выявлению, сокращению и исключению бездоговорного и безучетного потребления электроэнергии</option>
-            <option value="other" disabled>Другие регламенты (в разработке)</option>
+            <!-- Опции будут добавлены динамически через JavaScript -->
           </select>
           <div class="select-arrow">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -70,6 +69,15 @@
   </div>
 
   <div class="floating-buttons">
+    <button class="floating-btn" id="exportWordBtn" title="Выгрузить в Word">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <path d="M14 2v6h6"/>
+        <path d="M16 13H8"/>
+        <path d="M16 17H8"/>
+        <path d="M10 9H8"/>
+      </svg>
+    </button>
     <button class="floating-btn" id="collapseAllBtn" title="Свернуть все">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M4 14h16M4 10h16"/>
