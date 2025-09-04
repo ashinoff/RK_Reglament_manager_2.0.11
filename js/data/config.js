@@ -27,6 +27,12 @@ const APP_CONFIG = {
       title: 'Регламент взаимодействия при ОРП',
       year: 2019,
       enabled: true
+    },
+    {
+      id: 'rp-006-2025',
+      title: 'РП 006-2025 - Процесс "Технологическое присоединение"',
+      year: 2025,
+      enabled: true
     }
   ],
   animations: {
