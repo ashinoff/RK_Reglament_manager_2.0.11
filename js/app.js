@@ -183,7 +183,8 @@ const specialFields = {
   'registers': 'Реестры:',
   'frequency': 'Периодичность:',
   'actions': 'Действия:',
-  'violations': 'Нарушения:'
+  'violations': 'Нарушения:',
+  'Abbreviations': 'Аббревиатуры'
 };
 
 // Обработка специальных полей
