@@ -789,11 +789,29 @@ select option:checked {
   height:20px;
 }
 
-/* Специальный цвет для кнопки экспорта */
+/* Специальный стиль для кнопки экспорта */
 #exportWordBtn {
-  background: var(--accent);
+  background: var(--secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+#exportWordBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--accent) 0%, transparent 100%);
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
 }
 
 #exportWordBtn:hover {
-  background: var(--accent-dark);
+  background: var(--accent);
+}
+
+#exportWordBtn:hover::before {
+  opacity: 0.5;
 }
