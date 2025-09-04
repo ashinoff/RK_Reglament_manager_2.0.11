@@ -472,7 +472,7 @@ for (let field in algo.content) {
     
     if (textWidth > selectWidth) {
       wrapper.classList.add('marquee-active');
-      wrapper.setAttribute('data-text', selectedText + '     •     ' + selectedText + '     •     ');
+      wrapper.setAttribute('data-text', selectedText + '     •••••     ' + selectedText + '     ••••••     ' + selectedText + '     ••••••     ' + selectedText + '     ••••••     ');
     } else {
       wrapper.classList.remove('marquee-active');
       wrapper.removeAttribute('data-text');
