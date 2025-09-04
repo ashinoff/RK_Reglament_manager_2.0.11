@@ -342,7 +342,241 @@ for (let field in algo.content) {
     }
     updateCollapseButton();
   }
+  // ======= Экспорт в Word =======
+function exportToWord() {
+  const selectedReglament = document.getElementById('reglamentSelect').value;
+  const selectedTitle = document.getElementById('reglamentSelect').selectedOptions[0].text;
+  const algorithms = window.REGULATIONS_DATA[selectedReglament];
   
+  if (!algorithms) {
+    alert('Регламент не найден');
+    return;
+  }
+  
+  // Создаем HTML документ для Word
+  let html = `
+    <html xmlns:o='urn:schemas-microsoft-com:office:office' 
+          xmlns:w='urn:schemas-microsoft-com:office:word' 
+          xmlns='http://www.w3.org/TR/REC-html40'>
+    <head>
+      <meta charset="utf-8">
+      <title>${selectedTitle}</title>
+      <style>
+        @page { size: A4; margin: 2cm; }
+        body { 
+          font-family: Arial, sans-serif; 
+          line-height: 1.6; 
+          color: #333;
+          max-width: 21cm;
+          margin: 0 auto;
+        }
+        h1 { 
+          color: #8B1538; 
+          font-size: 24px; 
+          margin-bottom: 20px;
+          text-align: center;
+          page-break-after: avoid;
+        }
+        h2 { 
+          color: #8B1538; 
+          font-size: 20px; 
+          margin-top: 30px; 
+          margin-bottom: 15px;
+          page-break-after: avoid;
+        }
+        h3 { 
+          color: #333; 
+          font-size: 16px; 
+          margin-top: 20px; 
+          margin-bottom: 10px;
+          page-break-after: avoid;
+        }
+        p { margin: 10px 0; text-align: justify; }
+        ul, ol { margin: 10px 0; padding-left: 30px; }
+        li { margin: 5px 0; }
+        .section { 
+          margin-bottom: 30px; 
+          page-break-inside: avoid; 
+        }
+        .important { 
+          background-color: #fff3cd; 
+          padding: 15px;
+          border-left: 4px solid #F39200; 
+          margin: 15px 0;
+          font-weight: bold;
+        }
+        .responsible { 
+          margin-top: 20px;
+          padding: 10px;
+          background-color: #f8f9fa;
+          border-radius: 5px;
+        }
+        .responsible strong { color: #8B1538; }
+        code {
+          background-color: #f4f4f4;
+          padding: 2px 5px;
+          font-family: 'Courier New', monospace;
+          font-size: 14px;
+        }
+        table { 
+          border-collapse: collapse; 
+          width: 100%; 
+          margin: 15px 0;
+          page-break-inside: avoid;
+        }
+        td, th { 
+          border: 1px solid #ddd; 
+          padding: 8px; 
+          text-align: left; 
+        }
+        th { 
+          background-color: #8B1538;
+          color: white;
+          font-weight: bold; 
+        }
+        .page-break { page-break-after: always; }
+      </style>
+    </head>
+    <body>
+      <h1>${selectedTitle}</h1>
+      <p style="text-align: center; color: #666;">
+        Краткое содержание регламента<br>
+        Дата формирования: ${new Date().toLocaleDateString('ru-RU')}
+      </p>
+      <div class="page-break"></div>
+  `;
+  
+  // Добавляем оглавление
+  html += '<h2>Содержание</h2><ol>';
+  algorithms.forEach((algo, index) => {
+    html += `<li><a href="#section${index}">${algo.title}</a></li>`;
+  });
+  html += '</ol><div class="page-break"></div>';
+  
+  // Добавляем содержимое разделов
+  algorithms.forEach((algo, index) => {
+    html += `<div class="section" id="section${index}">`;
+    html += `<h2>${index + 1}. ${algo.title}</h2>`;
+    
+    const content = algo.content;
+    
+    // Основные шаги
+    if (content.steps) {
+      html += '<h3>Порядок действий:</h3><ol>';
+      content.steps.forEach(step => {
+        html += `<li>${step}</li>`;
+      });
+      html += '</ol>';
+    }
+    
+    // Действия
+    if (content.actions) {
+      content.actions.forEach(action => {
+        html += `<h3>${action.text}</h3>`;
+        if (action.list) {
+          html += '<ul>';
+          action.list.forEach(item => {
+            html += `<li>${item}</li>`;
+          });
+          html += '</ul>';
+        }
+      });
+    }
+    
+    // Ключевые моменты
+    if (content.keyPoints) {
+      html += '<h3>Ключевые моменты:</h3><ul>';
+      content.keyPoints.forEach(point => {
+        html += `<li>${point}</li>`;
+      });
+      html += '</ul>';
+    }
+    
+    // Документы
+    if (content.documents) {
+      html += '<h3>Необходимые документы:</h3><ul>';
+      content.documents.forEach(doc => {
+        html += `<li>${doc}</li>`;
+      });
+      html += '</ul>';
+    }
+    
+    // Сроки
+    if (content.timing) {
+      html += '<h3>Сроки выполнения:</h3><ul>';
+      content.timing.forEach(time => {
+        html += `<li>${time}</li>`;
+      });
+      html += '</ul>';
+    }
+    
+    // Формулы
+    if (content.formulas) {
+      html += '<h3>Формулы расчета:</h3>';
+      content.formulas.forEach(formula => {
+        html += `<p><strong>${formula.title}:</strong><br>`;
+        html += `<code>${formula.formula}</code>`;
+        if (formula.text) html += `<br>${formula.text}`;
+        html += '</p>';
+      });
+    }
+    
+    // Важная информация
+    if (content.important) {
+      html += `<div class="important">⚠️ Важно: ${content.important}</div>`;
+    }
+    
+    // Особые случаи
+    if (content.specialCases) {
+      html += `<h3>Особые случаи:</h3><p>${content.specialCases}</p>`;
+    }
+    
+    // Ответственный и срок
+    html += '<div class="responsible">';
+    if (content.responsible) {
+      html += `<p><strong>Ответственный:</strong> ${content.responsible}</p>`;
+    }
+    if (content.deadline) {
+      html += `<p><strong>Срок:</strong> ${content.deadline}</p>`;
+    }
+    html += '</div>';
+    
+    // Приложения
+    if (algo.attachments && algo.attachments.length > 0) {
+      html += '<h3>Приложения:</h3><ul>';
+      algo.attachments.forEach(att => {
+        html += `<li>${att.name} (${att.file})</li>`;
+      });
+      html += '</ul>';
+    }
+    
+    html += '</div>';
+    
+    // Разрыв страницы после каждого раздела (кроме последнего)
+    if (index < algorithms.length - 1) {
+      html += '<div class="page-break"></div>';
+    }
+  });
+  
+  html += '</body></html>';
+  
+  // Создаем Blob и скачиваем файл
+  const blob = new Blob(['\ufeff', html], {
+    type: 'application/msword'
+  });
+  
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `${selectedReglament}_краткое_содержание.doc`;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+}
+
+// Добавить в функцию initEventListeners() новый обработчик:
+// document.getElementById('exportWordBtn').addEventListener('click', exportToWord);
   function updateCollapseButton() {
     const collapseBtn = document.getElementById('collapseAllBtn');
     const expandBtn = document.getElementById('expandAllBtn');
@@ -517,7 +751,8 @@ for (let field in algo.content) {
     document.getElementById('scrollTopBtn').addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-    
+
+    document.getElementById('exportWordBtn').addEventListener('click', exportToWord);
     // Модальные окна
     document.querySelector('.close-modal').addEventListener('click', () => {
       document.getElementById('sourceModal').style.display = 'none';
