@@ -51,5 +51,21 @@ const navigationMaps = {
       'services-accounting': { page: 20, section: '6' },
       'documentation-forms': { page: 22, section: '8' }
     }
+  },
+  'rp-006-2025': {
+    docUrl: 'regulations/rp-006-2025/document.pdf',
+    sections: {
+      'general-provisions': { page: 3, section: '1' },
+      'key-terms': { page: 4, section: '3' },
+      'receiving-application': { page: 18, section: 'Приложение 3' },
+      'technical-conditions-development': { page: 21, section: '6.3 п.2' },
+      'contract-preparation': { page: 29, section: '6.3 п.3' },
+      'contract-conclusion': { page: 35, section: '6.3 п.4' },
+      'technical-conditions-check': { page: 42, section: '6.3 п.6' },
+      'connection-documentation': { page: 49, section: '6.3 п.7' },
+      'adjacent-networks-interaction': { page: 56, section: '6.3 п.8' },
+      'special-cases-over-150kw': { page: 59, section: '6.3 п.9' },
+      'kpi-and-control': { page: 11, section: '6.2' }
+    }
   }
 }; 
