@@ -798,3 +798,53 @@ select option:checked {
     font-size: 16px;
     border-radius: 5px;
 }
+.algorithm-block table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.75rem;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.algorithm-block table th,
+.algorithm-block table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.algorithm-block table th {
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.algorithm-block table tr:last-child td {
+  border-bottom: none;
+}
+
+.algorithm-block table tr:hover {
+  background: var(--surface);
+}
+
+.algorithm-block table td {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
+/* Адаптивность таблиц */
+@media (max-width: 768px) {
+  .algorithm-block table {
+    font-size: 0.875rem;
+  }
+  
+  .algorithm-block table th,
+  .algorithm-block table td {
+    padding: 0.5rem 0.75rem;
+  }
+}
