@@ -67,5 +67,26 @@ const navigationMaps = {
       'special-cases-over-150kw': { page: 59, section: '6.3 п.9' },
       'kpi-and-control': { page: 11, section: '6.2' }
     }
+  },
+  'i002-2019': {
+    docUrl: 'regulations/i002-2019/document.pdf',
+    sections: {
+      'purpose': { page: 5, section: '1' },
+      'normative-references': { page: 5, section: '2' },
+      'terms-definitions': { page: 6, section: '3' },
+      'work-types': { page: 8, section: '4.1' },
+      'personnel-requirements': { page: 8, section: '4.2.1' },
+      'documentation-requirements': { page: 9, section: '4.2.2' },
+      'technical-equipment': { page: 10, section: '4.2.3' },
+      'admission-procedure': { page: 11, section: '4.3' },
+      'inspection-procedure': { page: 15, section: '4.4' },
+      'operations-above-1000v': { page: 18, section: '4.5' },
+      'operations-below-1000v': { page: 22, section: '4.6' },
+      'split-meters-operations': { page: 30, section: '4.7' },
+      'sealing-protection': { page: 34, section: '4.8' },
+      'control-readings': { page: 35, section: '4.9' },
+      'act-filling-above-1000v': { page: 41, section: '4.10.2' },
+      'act-filling-below-1000v': { page: 49, section: '4.10.3' }
+    }
   }
 }; 
