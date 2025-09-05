@@ -219,41 +219,90 @@ for (let field in algo.content) {
   } else if (Array.isArray(fieldValue)) {
     // Массив элементов
     if (fieldValue.length > 0 && typeof fieldValue[0] === 'object') {
-      // Массив объектов (например, formulas, periodDetails)
-      fieldValue.forEach(item => {
-        const block = document.createElement('div');
-        block.className = 'algorithm-block';
+      // Массив объектов
+      const block = document.createElement('div');
+      block.className = 'algorithm-block';
+      block.innerHTML = `<h4>${fieldTitle}</h4>`;
+      
+      // Специальная обработка для thresholds
+      if (field === 'thresholds') {
+        const table = document.createElement('table');
+        table.style.width = '100%';
+        table.style.marginTop = '0.5rem';
+        table.innerHTML = `
+          <thead>
+            <tr>
+              <th style="text-align:left;">Значение</th>
+              <th style="text-align:left;">Действие</th>
+              <th style="text-align:left;">Маркировка</th>
+            </tr>
+          </thead>
+          <tbody>
+        `;
         
-        if (item.title) {
-          block.innerHTML = `<h4>${highlightText(item.title, rawTerm)}</h4>`;
-        }
+        fieldValue.forEach(threshold => {
+          const row = table.insertRow();
+          row.innerHTML = `
+            <td>${highlightText(threshold.value || '', rawTerm)}</td>
+            <td>${highlightText(threshold.action || '', rawTerm)}</td>
+            <td>${highlightText(threshold.marker || '', rawTerm)}</td>
+          `;
+        });
         
-        if (item.text) {
-          block.innerHTML += `<p>${highlightText(item.text, rawTerm)}</p>`;
-        }
-        
-        if (item.formula) {
-          block.innerHTML += `<p><code>${highlightText(item.formula, rawTerm)}</code></p>`;
-        }
-        
-        if (item.list) {
-          const ul = document.createElement('ul');
-          item.list.forEach(listItem => {
-            const li = document.createElement('li');
-            li.innerHTML = listItem.includes('=') || listItem.includes('×') 
-              ? `<code>${highlightText(listItem, rawTerm)}</code>`
-              : highlightText(listItem, rawTerm);
-            ul.appendChild(li);
-          });
-          block.appendChild(ul);
-        }
-        
-        content.appendChild(block);
-      });
+        block.appendChild(table);
+      } else {
+        // Обычные массивы объектов
+        fieldValue.forEach(item => {
+          const itemBlock = document.createElement('div');
+          itemBlock.style.marginTop = '0.5rem';
+          
+          if (item.title) {
+            itemBlock.innerHTML += `<p><strong>${highlightText(item.title, rawTerm)}</strong></p>`;
+          }
+          
+          if (item.text) {
+            itemBlock.innerHTML += `<p>${highlightText(item.text, rawTerm)}</p>`;
+          }
+          
+          if (item.formula) {
+            itemBlock.innerHTML += `<p><code>${highlightText(item.formula, rawTerm)}</code></p>`;
+          }
+          
+          if (item.list) {
+            const ul = document.createElement('ul');
+            item.list.forEach(listItem => {
+              const li = document.createElement('li');
+              li.innerHTML = listItem.includes('=') || listItem.includes('×') 
+                ? `<code>${highlightText(listItem, rawTerm)}</code>`
+                : highlightText(listItem, rawTerm);
+              ul.appendChild(li);
+            });
+            itemBlock.appendChild(ul);
+          }
+          
+          block.appendChild(itemBlock);
+        });
+      }
+      
+      content.appendChild(block);
     } else {
       // Простой массив строк
       content.appendChild(createBlock(fieldTitle, fieldValue, rawTerm));
     }
+  } else if (typeof fieldValue === 'object' && fieldValue !== null) {
+    // Объект (не массив)
+    const block = document.createElement('div');
+    block.className = 'algorithm-block';
+    block.innerHTML = `<h4>${fieldTitle}</h4>`;
+    
+    for (let subKey in fieldValue) {
+      const subValue = fieldValue[subKey];
+      const p = document.createElement('p');
+      p.innerHTML = `<strong>${subKey}:</strong> ${highlightText(subValue, rawTerm)}`;
+      block.appendChild(p);
+    }
+    
+    content.appendChild(block);
   }
 }
     
