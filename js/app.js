@@ -131,7 +131,7 @@
     }
     
     // Добавляем остальные поля контента по необходимости
-    const skipFields = ['responsible', 'deadline', 'steps', 'actions'];
+    const skipFields = ['responsible', 'deadline'];
 const specialFields = {
   'period': 'Период расчёта:',
   'formulas': 'Формулы расчёта:',
