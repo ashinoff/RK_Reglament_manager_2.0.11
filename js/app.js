@@ -200,8 +200,12 @@ const specialFields = {
   'analysis': 'Анализ:',
   'actions': 'Порядок действий:',
   'documents': 'Документы:',
-  'reporting': 'Отчетность:'
-};
+  'reporting': 'Отчетность:',
+  'abbreviations': 'Сокращения:',
+  'responsible': 'Ответственный:',
+  'deadline': 'Срок:',
+  'overview': 'Обзор:',
+  };
 
 // Обработка специальных полей
 for (let field in algo.content) {
