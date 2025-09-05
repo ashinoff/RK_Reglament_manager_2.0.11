@@ -182,15 +182,13 @@ const specialFields = {
   'notifications': 'Уведомления:',
   'registers': 'Реестры:',
   'frequency': 'Периодичность:',
-  'actions': 'Действия:',
+  'actions': 'Порядок действий:',
   'violations': 'Нарушения:',
-  'Abbreviations': 'Аббревиатуры',
-  'period': 'Период расчёта:',
+  'abbreviations': 'Аббревиатуры:',
   'requirements': 'Требования:',
   'equipment': 'Оборудование:',
   'stages': 'Этапы:',
   'keyPoint': 'Ключевой момент:',
-  'abbreviations': 'Аббревиатуры:',
   'criteria': 'Критерии:',
   'priority': 'Приоритет:',
   'sorting': 'Сортировка:',
@@ -198,13 +196,10 @@ const specialFields = {
   'schedule': 'График:',
   'provision': 'Обеспечение:',
   'analysis': 'Анализ:',
-  'actions': 'Порядок действий:',
-  'documents': 'Документы:',
-  'reporting': 'Отчетность:',
-  'abbreviations': 'Сокращения:',
+  'steps': 'Порядок действий:',
   'responsible': 'Ответственный:',
   'deadline': 'Срок:',
-  'overview': 'Обзор:',
+  'thresholds': 'Пороговые значения:'
   };
 
 // Обработка специальных полей
