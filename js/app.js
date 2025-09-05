@@ -184,7 +184,22 @@ const specialFields = {
   'frequency': 'Периодичность:',
   'actions': 'Действия:',
   'violations': 'Нарушения:',
-  'Abbreviations': 'Аббревиатуры'
+  'Abbreviations': 'Аббревиатуры',
+  'period': 'Период расчёта:',
+  'formulas': 'Формулы расчёта:',
+  'parameters': 'Параметры:',
+  'requirements': 'Требования:',
+  'equipment': 'Оборудование:',
+  'stages': 'Этапы:',
+  'keyPoint': 'Ключевой момент:',
+  'abbreviations': 'Аббревиатуры:',
+  'criteria': 'Критерии:',
+  'priority': 'Приоритет:',
+  'sorting': 'Сортировка:',
+  'measures': 'Мероприятия:',
+  'schedule': 'График:',
+  'provision': 'Обеспечение:',
+  'analysis': 'Анализ:'
 };
 
 // Обработка специальных полей
