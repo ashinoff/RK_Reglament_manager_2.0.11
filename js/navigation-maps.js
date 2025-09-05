@@ -88,5 +88,23 @@ const navigationMaps = {
       'act-filling-above-1000v': { page: 41, section: '4.10.2' },
       'act-filling-below-1000v': { page: 49, section: '4.10.3' }
     }
+  },
+  'i062-2024': {
+    docUrl: 'regulations/i062-2024/document.pdf',
+    sections: {
+      'purpose': { page: 5, section: '1' },
+      'terms-definitions': { page: 5, section: '3' },
+      'balance-analysis': { page: 5, section: '4.1' },
+      'stage-1-selection': { page: 6, section: '4.1.1' },
+      'stage-2-planning': { page: 7, section: '4.1.2' },
+      'stage-3-mining': { page: 9, section: '4.1.3' },
+      'applications-inclusion': { page: 12, section: '4.2' },
+      'measures-determination': { page: 12, section: '4.3' },
+      'monthly-plan-formation': { page: 12, section: '4.4' },
+      'daily-plans': { page: 13, section: '4.5' },
+      'daily-control': { page: 14, section: '4.6' },
+      'efficiency-assessment': { page: 14, section: '4.7' },
+      'appendices-requirements': { page: 15, section: '4.8' }
+    }
   }
 }; 
