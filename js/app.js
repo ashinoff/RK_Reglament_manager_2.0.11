@@ -186,8 +186,6 @@ const specialFields = {
   'violations': 'Нарушения:',
   'Abbreviations': 'Аббревиатуры',
   'period': 'Период расчёта:',
-  'formulas': 'Формулы расчёта:',
-  'parameters': 'Параметры:',
   'requirements': 'Требования:',
   'equipment': 'Оборудование:',
   'stages': 'Этапы:',
@@ -199,7 +197,10 @@ const specialFields = {
   'measures': 'Мероприятия:',
   'schedule': 'График:',
   'provision': 'Обеспечение:',
-  'analysis': 'Анализ:'
+  'analysis': 'Анализ:',
+  'actions': 'Порядок действий:',
+  'documents': 'Документы:',
+  'reporting': 'Отчетность:'
 };
 
 // Обработка специальных полей
