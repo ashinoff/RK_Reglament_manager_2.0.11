@@ -112,23 +112,28 @@
     // Добавляем различные блоки контента
     if (algo.content.steps) content.appendChild(createBlock('Порядок действий:', algo.content.steps, rawTerm, true));
     
-    if (algo.content.actions) {
-      algo.content.actions.forEach(action => {
-        const actionDiv = document.createElement('div');
-        actionDiv.className = 'algorithm-block';
-        actionDiv.innerHTML = `<h4>${highlightText(action.text, rawTerm)}</h4>`;
-        if (action.list) {
-          const ul = document.createElement('ul');
-          action.list.forEach(item => {
-            const li = document.createElement('li');
-            li.innerHTML = highlightText(item, rawTerm);
-            ul.appendChild(li);
-          });
-          actionDiv.appendChild(ul);
-        }
-        content.appendChild(actionDiv);
-      });
-    }
+    if (algo.content.actions && Array.isArray(algo.content.actions)) {
+  // Проверяем тип первого элемента
+  if (algo.content.actions.length > 0 && typeof algo.content.actions[0] === 'object') {
+    // Массив объектов (старый формат)
+    algo.content.actions.forEach(action => {
+      const actionDiv = document.createElement('div');
+      actionDiv.className = 'algorithm-block';
+      actionDiv.innerHTML = `<h4>${highlightText(action.text, rawTerm)}</h4>`;
+      if (action.list) {
+        const ul = document.createElement('ul');
+        action.list.forEach(item => {
+          const li = document.createElement('li');
+          li.innerHTML = highlightText(item, rawTerm);
+          ul.appendChild(li);
+        });
+        actionDiv.appendChild(ul);
+      }
+      content.appendChild(actionDiv);
+    });
+  }
+ 
+}
     
     // Добавляем остальные поля контента по необходимости
     const skipFields = ['responsible', 'deadline'];
