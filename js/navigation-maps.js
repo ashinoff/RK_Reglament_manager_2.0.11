@@ -109,8 +109,7 @@ const navigationMaps = {
   },
   'r043-2021': {
     docUrl: 'regulations/r043-2021/document.pdf',
-
-  sections: {
+    sections: {
        'purpose': { page: 2, section: '1' },
        'normative-references': { page: 3, section: '2' },
        'terms-definitions': { page: 4, section: '3' },
@@ -125,7 +124,7 @@ const navigationMaps = {
        'special-situations': { page: 32, section: '4.6' },
        'portal-statuses': { page: 34, section: '4.7' },
        'attachments-forms': { page: 36, section: 'Приложения' }
-    }
+     }
     }
   };
   
