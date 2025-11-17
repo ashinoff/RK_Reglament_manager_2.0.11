@@ -106,5 +106,53 @@ const navigationMaps = {
       'efficiency-assessment': { page: 14, section: '4.7' },
       'appendices-requirements': { page: 15, section: '4.8' }
     }
+  },
+  'r043-2021': {
+    docUrl: 'regulations/r043-2021/document.pdf',
+
+  sections: {
+    // 1. Назначение
+    'purpose': { page: 2, section: '1' },
+
+    // 2. Нормативная база
+    'normative-references': { page: 3, section: '2' },
+
+    // 3. Термины и определения
+    'terms-definitions': { page: 4, section: '3' },
+
+    // 4. Участники процесса и ответственность
+    'participants-responsibility': { page: 6, section: '4.2' },
+
+    // 5. Виды обращений
+    'request-types': { page: 7, section: '4.1' },
+
+    // 6. Приём и регистрация заявлений
+    'acceptance-registration': { page: 9, section: '4.3' },
+
+    // 7. Рассмотрение и проверка документов
+    'review-verification': { page: 12, section: '4.4' },
+
+    // 8. Сроки
+    'deadlines': { page: 18, section: '4.4.*' },
+
+    // 9. Осмотр ЭПУ
+    'epu-inspection': { page: 21, section: '4.4.6' },
+
+    // 10. Оформление и выдача АТП
+    'atp-preparation': { page: 25, section: '4.4.7' },
+
+    // 11. Основания для переоформления и отказа
+    'grounds-and-refusals': { page: 29, section: '4.5' },
+
+    // 12. Особые случаи
+    'special-situations': { page: 32, section: '4.6' },
+
+    // 13. Статусы Портала и КПК ТП
+    'portal-statuses': { page: 34, section: '4.7' },
+
+    // 14. Приложения
+    'attachments-forms': { page: 36, section: 'Приложения' }
   }
+};
+  
 }; 
