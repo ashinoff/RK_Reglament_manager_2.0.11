@@ -1,5 +1,3 @@
-window.REGULATIONS_DATA = window.REGULATIONS_DATA || {};
-
 window.REGULATIONS_DATA['r043-2021'] = [
   {
     id: 'purpose',
