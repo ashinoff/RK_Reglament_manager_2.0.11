@@ -125,6 +125,29 @@ const navigationMaps = {
        'portal-statuses': { page: 34, section: '4.7' },
        'attachments-forms': { page: 36, section: 'Приложения' }
      }
+    },
+  'sto34-01-5-005-2017UP': {
+    docUrl: 'regulations/sto34-01-5-005-2017UP/document.pdf',
+    sections: {
+      'intro': { page: 1, section: 'Введение' },
+      'scope': { page: 3, section: '1' },
+      'normative': { page: 4, section: '2' },
+      'abbreviations': { page: 6, section: '3' },
+      'energy-volumes': { page: 8, section: '4' },
+      'control-readings': { page: 12, section: '4.1' },
+      'technical-checks': { page: 15, section: '4.2' },
+      'unaccounted-acts': { page: 18, section: '4.3-4.5' },
+      'loss-reduction-measures': { page: 25, section: '5' },
+      'technical-aspects': { page: 28, section: '5.2' },
+      'loss-analysis-management': { page: 32, section: '6' },
+      'loss-calculation': { page: 36, section: '7' },
+      'training': { page: 40, section: '8' },
+      'internal-audit': { page: 43, section: '9-10' },
+      'attachments-forms': { page: 46, section: 'Приложения' },
+      'common-schemes': { page: 50, section: 'Схемы' },
+      'portal-statuses': { page: 54, section: 'Статусы' }
     }
+  }
   };
+
   
