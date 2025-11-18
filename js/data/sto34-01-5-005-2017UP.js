@@ -1,5 +1,3 @@
-window.REGULATIONS_DATA = window.REGULATIONS_DATA || {};
-
 window.REGULATIONS_DATA['sto-34-01-5-005-2017'] = [
   {
     id: 'intro',
