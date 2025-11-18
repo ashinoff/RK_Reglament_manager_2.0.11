@@ -1,4 +1,4 @@
-window.REGULATIONS_DATA['sto-34-01-5-005-2017'] = [
+window.REGULATIONS_DATA['sto34-01-5-005-2017UP'] = [
   {
     id: 'intro',
     title: 'ВВЕДЕНИЕ',
